@@ -15,7 +15,6 @@ email about an expected subject, a delivery update: if the words are there, Aler
 [![Billing](https://img.shields.io/badge/Google%20Play-Billing-34a853?style=flat-square&logo=google-play&logoColor=white)](#-premium--billing)
 [![Size](https://img.shields.io/badge/APK-~3.0_MB-orange?style=flat-square)]()
 
-[Google Play listing](https://play.google.com/store/apps/details?id=com.nebz.alertify) ·
 [What's new in v3.0.0](#-whats-new-in-v300) ·
 [Getting started](#-getting-started)
 
@@ -142,7 +141,7 @@ This repository currently ships the compiled release build; application source i
 
 ```text
 Alertify/
-└── Alertify.apk        # Release APK, v3.0.0 (versionCode 100), ~3.0 MB, Play stamped
+└── Alertify.apk        # Release APK, v3.0.0 (versionCode 100), ~3.0 MB
 ```
 
 Inside the APK (extracted from `classes.dex`, `AndroidManifest.xml`, and `resources.arsc`):
@@ -180,7 +179,7 @@ com.nebz.alertify
 | Core | `NotificationListenerService`, foreground service, MediaPlayer, RingtoneManager |
 | Storage | SharedPreferences (rules, schedule, premium state) |
 | Monetization | Google Play Billing Library (one time consumable IAP) |
-| Distribution | Google Play (`com.nebz.alertify`) |
+| Distribution | Direct APK via this repository |
 
 ---
 
@@ -192,19 +191,13 @@ com.nebz.alertify
 
 ### Install
 
-**Option A: Google Play**
-
-Grab it from the [Play Store listing](https://play.google.com/store/apps/details?id=com.nebz.alertify).
-
-**Option B: sideload the APK**
-
 ```bash
 adb install Alertify.apk
 # or copy Alertify.apk to the device and open it
 ```
 
-> ⚠️ **Note:** this APK is signed with a debug key, so it installs as a separate app and cannot
-> update over (or be updated by) a Play Store installed copy. Pick one source and stick with it.
+> ⚠️ **Note:** the APK is signed with a debug key, so builds from different sources install as
+> separate apps and will not update over each other.
 
 ### First run
 
@@ -220,12 +213,11 @@ state. Use the in app toggle to rebind it; the app will tell you if a reboot is 
 
 ---
 
-## 📲 Distribution
+## 📲 Releases
 
-| Channel | Status |
+| Release | Artifact |
 | --- | --- |
-| Google Play | Listed: [com.nebz.alertify](https://play.google.com/store/apps/details?id=com.nebz.alertify) |
-| Direct APK | `Alertify.apk` in this repository (v3.0.0, versionCode 100) |
+| v3.0.0 (versionCode 100) | [`Alertify.apk`](Alertify.apk) in this repository |
 
 There is no CI or build pipeline in this repository: releases here are the exported APK artifacts
 themselves. To rebuild from source you would need the original project (package `com.nebz.alertify`,
